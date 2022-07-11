@@ -15,6 +15,21 @@ export const ListItem = Styled.li`
     transition: all 300ms ease-out;
     overflow: hidden;
 
+    ${(props) => {
+        if (props.voted) {
+            return `
+                border: solid 4px ${getColor("primary")};
+                border-radius: 8px;
+            `;
+        } else {
+            return `
+                border: solid 4px ${getColor("darkgrey")};
+                border-right: dashed 4px ${getColor("darkgrey")};
+                border-radius: 8px 0 0 8px;
+            `;
+        }
+    }};
+
     &:hover {
         transform: scale(1.1);
         transform: rotate(-1deg);
@@ -29,6 +44,18 @@ export const ListItem = Styled.li`
 export const ListItemTitle = Styled.h4`
     font-size: 1.2em;
     margin-bottom: 8px;
+
+    ${(props) => {
+        if (props.voted) {
+            return `
+                margin-top: -40px;
+            `;
+        } else {
+            return `
+                margin-top: 0px;
+            `;
+        }
+    }};
 `;
 
 export const ListItemTypeGroup = Styled.div`

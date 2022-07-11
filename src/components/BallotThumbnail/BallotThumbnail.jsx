@@ -4,17 +4,19 @@ import React from "react";
 import MultipleChoiceIcon from "../../assets/icons/multiple.svg";
 import SingleChoiceIcon from "../../assets/icons/single.svg";
 import WriteInIcon from "../../assets/icons/write-in.svg";
+import Seal from "../../assets/icons/seal.svg";
 
 /* STYLES */
 import * as Styled from "./BallotThumbnail.styles";
 
 const BallotThumbnail = ({ data, toggleVotingScreen }) => {
     /* PROPS DESTRUCTURING */
-    const { name, type, options, id } = data;
+    const { name, type, options, id, voted } = data;
 
     return (
-        <Styled.ListItem>
-            <Styled.ListItemTitle>{name}</Styled.ListItemTitle>
+        <Styled.ListItem voted={voted}>
+            {voted && <Styled.VotedSeal src={Seal} />}
+            <Styled.ListItemTitle voted={voted}>{name}</Styled.ListItemTitle>
             <Styled.ListItemTypeGroup>
                 <Styled.ListItemTypeImage
                     src={
@@ -39,7 +41,7 @@ const BallotThumbnail = ({ data, toggleVotingScreen }) => {
                 </Styled.ListItemDescription>
             )}
             <Styled.ListItemButton onClick={() => toggleVotingScreen(id)}>
-                Vote
+                {voted ? "Change" : "Vote"}
             </Styled.ListItemButton>
         </Styled.ListItem>
     );
