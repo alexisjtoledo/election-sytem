@@ -21,7 +21,7 @@ export const electionSlice = createSlice({
 
     reducers: {
         setLogin: (state, action) => {
-            console.log("Logged in");
+            state.login = action.payload;
         },
         castVote: (state, action) => {
             console.log("Vote issued");
