@@ -1,0 +1,53 @@
+{
+    "name": "Food Preferences",
+    "ballots": [
+        {
+            "id": 1,
+            "name": "Best Ice Cream flavour",
+            "type": "multiple-choice",
+            "options": [
+                { "id": 1, "name": "Vanilla", "selected": false },
+                { "id": 2, "name": "Chocolate", "selected": false },
+                { "id": 3, "name": "Strawberry", "selected": false },
+                { "id": 4, "name": "Cookie Dough", "selected": false }
+            ],
+            "voted": false
+        },
+        {
+            "id": 2,
+            "name": "Tastiest Breakfast",
+            "type": "single-choice",
+            "options": [
+                { "id": 1, "name": "Toast", "selected": false },
+                { "id": 2, "name": "Pancakes", "selected": false },
+                { "id": 3, "name": "Sandwich", "selected": false },
+                { "id": 4, "name": "Cereal", "selected": false }
+            ],
+            "voted": false
+        },
+        {
+            "id": 3,
+            "name": "Favourite Style of Food",
+            "type": "write-in",
+            "options": [],
+            "voted": false
+        }
+    ],
+    "users": [
+        {
+            "username": "user1",
+            "password": "user1",
+            "ballots": []
+        },
+        {
+            "username": "user2",
+            "password": "user2",
+            "ballots": []
+        },
+        {
+            "username": "user3",
+            "password": "user3",
+            "ballots": []
+        }
+    ]
+}
