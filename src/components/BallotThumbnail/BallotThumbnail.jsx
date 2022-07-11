@@ -8,9 +8,9 @@ import WriteInIcon from "../../assets/icons/write-in.svg";
 /* STYLES */
 import * as Styled from "./BallotThumbnail.styles";
 
-const BallotThumbnail = ({ data }) => {
+const BallotThumbnail = ({ data, toggleVotingScreen }) => {
     /* PROPS DESTRUCTURING */
-    const { name, type, options } = data;
+    const { name, type, options, id } = data;
 
     return (
         <Styled.ListItem>
@@ -38,7 +38,9 @@ const BallotThumbnail = ({ data }) => {
                     {options.length} options
                 </Styled.ListItemDescription>
             )}
-            <Styled.ListItemButton>Vote</Styled.ListItemButton>
+            <Styled.ListItemButton onClick={() => toggleVotingScreen(id)}>
+                Vote
+            </Styled.ListItemButton>
         </Styled.ListItem>
     );
 };

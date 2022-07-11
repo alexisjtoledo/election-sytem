@@ -24,7 +24,19 @@ export const electionSlice = createSlice({
             state.login = action.payload;
         },
         castVote: (state, action) => {
-            console.log("Vote issued");
+            state.login.userBallots = state.login.userBallots.map((ballot) =>
+                ballot.id === action.payload.id ? action.payload : ballot,
+            );
+            state.results.castedVotes = [
+                ...state.results.castedVotes,
+                action.payload,
+            ];
+            state.results.totalVotes += 1;
+            state.users = state.users.map((user) =>
+                user.username === action.payload.identity
+                    ? { ...user, ballots: state.login.userBallots }
+                    : user,
+            );
         },
     },
 });
