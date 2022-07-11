@@ -22,3 +22,43 @@ export const SectionTitle = Styled.h2`
     font-size: 2.5em;
     margin-bottom: 32px;
 `;
+
+export const Dashboard = Styled.div`
+    border-radius: 16px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+
+    @media ${device.tablet} {
+        flex-direction: row;
+    }
+`;
+
+export const ListGroup = Styled.div`
+    display: flex;
+    flex-direction: column;
+    background-color: ${getColor("white")};
+    width: 75vw;
+    border-radius: 16px;
+    padding: 32px;
+    box-shadow: 0 0 16px rgba(0,0,0,0.1);
+    margin-bottom: 32px;
+
+    @media ${device.tablet} {
+        width: 30vw;
+        min-height: 60vh;
+        max-height: 70vh;
+        margin-bottom: 0px;
+    }
+`;
+
+export const List = Styled.ul`
+    padding: 16px;
+`;
+
+export const ListTitle = Styled.h3`
+    font-size: 2em;
+    align-self: center;
+    margin-bottom: 16px;
+`;
