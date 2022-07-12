@@ -47,8 +47,8 @@ export const ListGroup = Styled.div`
 
     @media ${device.tablet} {
         width: 30vw;
-        min-height: 60vh;
-        max-height: 70vh;
+        min-height: 70vh;
+        max-height: 80vh;
         margin-bottom: 0px;
     }
 `;
