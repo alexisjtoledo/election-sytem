@@ -35,6 +35,12 @@
 
 [https://election-system-d745e.web.app/](https://election-system-d745e.web.app/)
 
+_Login accounts:_
+
+-   user: `user1` / password: `user1`
+-   user: `user2` / password: `user2`
+-   user: `user3` / password: `user3`
+
 ## Docker Image
 
 1. Run `docker pull alexistoledo/election-system` to fetch the image.
