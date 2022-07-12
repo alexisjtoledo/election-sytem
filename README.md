@@ -7,6 +7,7 @@
   - [Technologies](#technologies)
   - [How to install](#how-to-install)
   - [Live version](#live-version)
+  - [Docker Image](#docker-image)
   - [To-Do's / Improvements](#to-dos--improvements)
 
 ## Technologies
@@ -33,6 +34,12 @@
 ## Live version
 
 [https://election-system-d745e.web.app/](https://election-system-d745e.web.app/)
+
+## Docker Image
+
+1. Run `docker pull alexistoledo/election-system` to fetch the image.
+2. Run `docker run --rm -p 3000:3000 alexistoledo/election-system` to start the app.
+3. Access it on [http://localhost:3000](http://localhost:3000)
 
 ## To-Do's / Improvements
 
