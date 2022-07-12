@@ -1,5 +1,6 @@
 import { createSlice, current } from "@reduxjs/toolkit";
 import election from "../../data/election.json";
+import CryptoJS from "crypto-js";
 
 /**
  *  Checks if there's any persisted data in the browser
@@ -8,7 +9,11 @@ import election from "../../data/election.json";
 export const loadState = () => {
     const preservedState = localStorage.getItem("state");
     if (preservedState) {
-        return JSON.parse(preservedState);
+        const decryptedState = CryptoJS.AES.decrypt(
+            preservedState,
+            process.env.REACT_APP_CRYPTO_PASSPHRASE,
+        ).toString(CryptoJS.enc.Utf8);
+        return JSON.parse(decryptedState);
     } else {
         return {
             electionName: election.name,
@@ -37,7 +42,11 @@ export const electionSlice = createSlice({
     reducers: {
         setLogin: (state, action) => {
             state.login = action.payload;
-            localStorage.setItem("state", JSON.stringify(current(state)));
+            const encryptedState = CryptoJS.AES.encrypt(
+                JSON.stringify(current(state)),
+                process.env.REACT_APP_CRYPTO_PASSPHRASE,
+            );
+            localStorage.setItem("state", encryptedState);
         },
         castVote: (state, action) => {
             state.login.userBallots = state.login.userBallots.map((ballot) =>
@@ -53,7 +62,11 @@ export const electionSlice = createSlice({
                     ? { ...user, ballots: state.login.userBallots }
                     : user,
             );
-            localStorage.setItem("state", JSON.stringify(current(state)));
+            const encryptedState = CryptoJS.AES.encrypt(
+                JSON.stringify(current(state)),
+                process.env.REACT_APP_CRYPTO_PASSPHRASE,
+            );
+            localStorage.setItem("state", encryptedState);
         },
     },
 });
